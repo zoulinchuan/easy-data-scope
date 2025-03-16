@@ -1,0 +1,9 @@
+server:
+  port: 8000
+# DataSource Config
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://${mysql_address}:${mysql_port}/${data_base_name}
+    username: ${mysql_address_username}
+    password: ${mysql_address_password}
