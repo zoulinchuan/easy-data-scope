@@ -5,5 +5,5 @@
 
 ### 支持情况
 - 原生mybatis ❌
-- mybatis-plus ❌
+- mybatis-plus （开发中）
 - mybatis-flex ✅
