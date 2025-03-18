@@ -17,6 +17,7 @@ import java.lang.annotation.Target;
 @Target(ElementType.TYPE)
 @Retention(RetentionPolicy.RUNTIME)
 @Configuration
+@EnableDataScope
 @Import(MyBatisDataScopeConfiguration.class)
 public @interface EnableMybatisDataScope {
 }

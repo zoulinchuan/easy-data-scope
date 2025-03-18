@@ -1,5 +1,6 @@
 package com.zou;
 
+import com.zou.anno.EnableDataScope;
 import com.zou.anno.EnableFlexDataScope;
 import com.zou.anno.EnableMybatisDataScope;
 import com.zou.config.MyDataScopeFindRule;
@@ -15,9 +16,8 @@ import org.springframework.scheduling.annotation.EnableAsync;
  */
 @SpringBootApplication
 @MapperScan("com.zou.mapper")
-@EnableFlexDataScope
-@EnableMybatisDataScope
-@EnableAsync
+@EnableFlexDataScope // 开启flex数据权限支持
+@EnableMybatisDataScope // 开启原生MyBatis数据权限支持
 public class Main {
     public static void main(String[] args) {
         ConfigurableApplicationContext context = SpringApplication.run(Main.class);
