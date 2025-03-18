@@ -45,6 +45,9 @@ public @interface DataScope {
 ```
 
 ### 使用方式
+##### 开启数据权限处理
+<img width="1020" alt="image" src="https://github.com/user-attachments/assets/0f7e8bc8-cfe1-43b8-8863-501d37761de9" />
+
 ##### 任意方法
 <img width="1288" alt="image" src="https://github.com/user-attachments/assets/2c38d69a-eada-4af7-98db-12205bbb8975" />
 生成SQL
