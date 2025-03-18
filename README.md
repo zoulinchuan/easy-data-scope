@@ -48,17 +48,19 @@ public @interface DataScope {
 ##### 开启数据权限处理
 <img width="1020" alt="image" src="https://github.com/user-attachments/assets/0f7e8bc8-cfe1-43b8-8863-501d37761de9" />
 
-##### 任意方法
+##### 使用1: 任意方法
 <img width="1288" alt="image" src="https://github.com/user-attachments/assets/2c38d69a-eada-4af7-98db-12205bbb8975" />
+
 生成SQL
 
 ``` SQL
  SELECT `id`, `username`, `age` FROM `user` WHERE  /*这是使用template生成的SQL*/user.id   IN  (1, 2, 3) OR user.age > 10  AND (/*这是使用template生成的SQL*/user.id   IN  (1, 2, 3) OR user.age > 10)
 ```
 
-##### MyBatis
+##### 使用2:MyBatis
 <img width="1286" alt="image" src="https://github.com/user-attachments/assets/444f16aa-3382-4913-9a45-60f3c83cd989" />
 <img width="688" alt="image" src="https://github.com/user-attachments/assets/b201dc0a-ce7a-4a96-b658-b8f697555d10" />
+
 生成SQL
 
 ``` SQL
