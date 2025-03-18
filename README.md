@@ -3,6 +3,9 @@
 - 配置简单
 - 使用便捷
 
+### 使用方式
+<img width="1288" alt="image" src="https://github.com/user-attachments/assets/2c38d69a-eada-4af7-98db-12205bbb8975" />
+
 ### 支持情况
 - 原生mybatis ❌
 - mybatis-plus （开发中）
