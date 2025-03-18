@@ -9,7 +9,7 @@ import java.util.regex.Pattern;
  */
 public class TemplateUtils {
     // 正则表达式模式：匹配 {key} 格式，捕获 key 值
-    private static final Pattern PLACEHOLDER_PATTERN = Pattern.compile("\\{([^}]+)\\}");
+    private static final Pattern PLACEHOLDER_PATTERN = Pattern.compile("\\{\\{([^}]+)\\}\\}");
 
     /**
      * 替换字符串模板中的占位符

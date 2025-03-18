@@ -58,10 +58,10 @@ public class DataScopeAnnotationAdvisor extends AbstractPointcutAdvisor {
             public Object invoke(MethodInvocation invocation) throws Throwable {
                 log.info("=======数据权限拦截=======");
                 DataScope dataScope = getMethodAnnotation(invocation, DataScope.class);
-                DataScopeConfig dataScopeConfig = new DataScopeConfig(Arrays.stream(dataScope.keys()).collect(Collectors.toSet()), dataScope.template(), dataScope.merge(), dataScope.logical());
+                DataScopeConfig dataScopeConfig = DataScopeConfig.build(dataScope);
                 DataScopeContext.setDataScopeConfig(dataScopeConfig);
                 // 通过用户定义规则获取到数据权限实体
-                List<DataScopeInfo> dataScopeInfos = beanFactory.getBean(DataScopeFindRule.class).find(dataScope.keys());
+                List<DataScopeInfo> dataScopeInfos = dataScopeFindRule.find(dataScope.keys());
                 if (dataScope.merge()) {
                     dataScopeInfos = AnalysisDataScope.merge(dataScopeInfos);
                 }

@@ -22,7 +22,7 @@ public @interface DataScope {
 
     /**
      * 构建模板
-     * 当key为多个时此值生效
+     * TODO 注意：当key为多个时此值生效
      * key1 ==SQL==> table1.column1 = 1
      * key2 ==SQL==> table2.column2 = 2
      * 示例：template = "{key1} OR {key2}"
@@ -45,7 +45,14 @@ public @interface DataScope {
     /**
      * 逻辑符
      * 决定数据权限SQL拼接到当前执行的SQL中用的使用的是 AND还是OR..
+     * TODO 注意：在flag为true时此值将会失效
      * @return
      */
     String logical() default SqlConsts.AND;
+
+    /**
+     * 是否使用数据权限标记位标记位，true是 false否
+     * @return
+     */
+    boolean flag() default false;
 }

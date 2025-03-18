@@ -2,6 +2,7 @@ package com.zou.interceptor;
 
 import cn.hutool.core.util.StrUtil;
 import com.zou.*;
+import com.zou.constant.DataScopeConsts;
 import com.zou.constant.SqlConsts;
 import org.apache.ibatis.executor.statement.StatementHandler;
 import org.apache.ibatis.mapping.BoundSql;
@@ -31,9 +32,29 @@ public class DataScopeInterceptor implements Interceptor {
             // 构建条件SQL
             String conditionSql = AnalysisDataScope.buildCondition(DataScopeContext.getDataScopeInfoList(),
                 dataScopeConfig.getTemplate(), DataScopeContext.getDataScopeParams());
+            if (StrUtil.isNotBlank(conditionSql)) {
+                StringBuilder newSql = doAppendConditionSql(originalSql, dataScopeConfig, conditionSql);
+                // 修改 BoundSql 中的 SQL
+                Field sqlField = boundSql.getClass().getDeclaredField("sql");
+                sqlField.setAccessible(true);
+                sqlField.set(boundSql, newSql.toString());
+            }
+        }
+
+        return invocation.proceed();
+    }
+
+    private static StringBuilder doAppendConditionSql(String originalSql, DataScopeConfig dataScopeConfig, String conditionSql) {
+        if (StrUtil.isBlank(conditionSql)) {
+            return null;
+        }
+        StringBuilder newSql = new StringBuilder();
+        if (dataScopeConfig.isFlag()) {
+            DataScopeContext.putDataScopeParam(DataScopeConsts.DATA_SCOPE_PARAM_KEY, conditionSql);
+            newSql = new StringBuilder(TemplateUtils.replacePlaceholders(originalSql, DataScopeContext.getDataScopeParams()));
+        } else {
             // 注入原始查询
             if (StrUtil.isNotBlank(conditionSql)) {
-                StringBuilder newSql = new StringBuilder(originalSql);
                 if ("OR".equalsIgnoreCase(dataScopeConfig.getLogical().trim())) {
                     newSql.append(SqlConsts.OR)
                         .append(SqlConsts.BRACKET_LEFT)
@@ -45,15 +66,9 @@ public class DataScopeInterceptor implements Interceptor {
                         .append(conditionSql)
                         .append(SqlConsts.BRACKET_RIGHT);
                 }
-
-                // 修改 BoundSql 中的 SQL
-                Field sqlField = boundSql.getClass().getDeclaredField("sql");
-                sqlField.setAccessible(true);
-                sqlField.set(boundSql, newSql.toString());
             }
         }
-
-        return invocation.proceed();
+        return newSql;
     }
 }
 
