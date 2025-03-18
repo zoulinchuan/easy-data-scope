@@ -13,7 +13,7 @@ import java.util.Map;
  */
 public class DataScopeContext {
     private static final ThreadLocal<List<DataScopeInfo>> DATA_SCOPE_INFO_LIST= new ThreadLocal<>();
-    private static final ThreadLocal<DataScopeHolder> DATA_SCOPE_HOLDER = new ThreadLocal<>();
+    private static final ThreadLocal<DataScopeConfig> DATA_SCOPE_CONFIG = new ThreadLocal<>();
     private static final ThreadLocal<Map<String, Object>> DATA_SCOPE_PARAMS = new ThreadLocal<>();
 
     public static List<DataScopeInfo> getDataScopeInfoList() {
@@ -24,12 +24,12 @@ public class DataScopeContext {
         DATA_SCOPE_INFO_LIST.set(dataScopeInfo);
     }
 
-    public static DataScopeHolder getDataScopeHolder() {
-        return DATA_SCOPE_HOLDER.get();
+    public static DataScopeConfig getDataScopeConfig() {
+        return DATA_SCOPE_CONFIG.get();
     }
 
-    public static void setDataScopeHolder(DataScopeHolder dataSourceHolder) {
-        DATA_SCOPE_HOLDER.set(dataSourceHolder);
+    public static void setDataScopeConfig(DataScopeConfig dataSourceHolder) {
+        DATA_SCOPE_CONFIG.set(dataSourceHolder);
     }
 
     public static Object getDataScopeParam(String key) {
@@ -57,7 +57,7 @@ public class DataScopeContext {
 
     protected static void clear() {
         DATA_SCOPE_INFO_LIST.remove();
-        DATA_SCOPE_HOLDER.remove();
+        DATA_SCOPE_CONFIG.remove();
         DATA_SCOPE_PARAMS.remove();
     }
 }

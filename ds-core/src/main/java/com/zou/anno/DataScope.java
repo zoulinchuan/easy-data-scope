@@ -23,6 +23,10 @@ public @interface DataScope {
     /**
      * 构建模板
      * 当key为多个时此值生效
+     * key1 ==SQL==> table1.column1 = 1
+     * key2 ==SQL==> table2.column2 = 2
+     * 示例：template = "{key1} OR {key2}"
+     * 通过template生成后的SQL：table1.column1 = 1 OR table2.column2 = 2
      * @return
      */
     String template() default "";

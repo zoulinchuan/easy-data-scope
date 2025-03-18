@@ -14,7 +14,7 @@ import java.util.Set;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class DataScopeHolder {
+public class DataScopeConfig {
     private Set<String> keys;
 
     private String template;

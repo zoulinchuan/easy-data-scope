@@ -16,14 +16,14 @@ public class DataScopeDialect extends CommonsDialectImpl {
     public String forSelectByQuery(QueryWrapper queryWrapper) {
         // 数据权限
         log.info("数据权限注入...");
-        DataScopeHolder dataScopeHolder = DataScopeContext.getDataScopeHolder();
-        if (dataScopeHolder != null) {
+        DataScopeConfig dataScopeConfig = DataScopeContext.getDataScopeConfig();
+        if (dataScopeConfig != null) {
             // 构建条件SQL
             String conditionSql = AnalysisDataScope.buildCondition(DataScopeContext.getDataScopeInfoList(),
-                    dataScopeHolder.getTemplate(), DataScopeContext.getDataScopeParams());
+                    dataScopeConfig.getTemplate(), DataScopeContext.getDataScopeParams());
             // 注入原始查询
             if (StrUtil.isNotBlank(conditionSql)) {
-                if ("OR".equalsIgnoreCase(dataScopeHolder.getLogical().trim())) {
+                if ("OR".equalsIgnoreCase(dataScopeConfig.getLogical().trim())) {
                     queryWrapper.or(conditionSql);
                 } else {
                     queryWrapper.and(conditionSql);

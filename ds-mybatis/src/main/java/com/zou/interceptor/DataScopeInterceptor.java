@@ -1,6 +1,5 @@
 package com.zou.interceptor;
 
-import cn.hutool.core.collection.CollUtil;
 import cn.hutool.core.util.StrUtil;
 import com.zou.*;
 import com.zou.constant.SqlConsts;
@@ -13,7 +12,6 @@ import org.apache.ibatis.plugin.Signature;
 
 import java.lang.reflect.Field;
 import java.sql.Connection;
-import java.util.List;
 
 @Intercepts({
     @Signature(type = StatementHandler.class, method = "prepare", args = {Connection.class, Integer.class}),
@@ -28,15 +26,15 @@ public class DataScopeInterceptor implements Interceptor {
         String originalSql = boundSql.getSql();
 
         // 自定义修改逻辑（例如替换占位符）
-        DataScopeHolder dataScopeHolder = DataScopeContext.getDataScopeHolder();
-        if (dataScopeHolder != null) {
+        DataScopeConfig dataScopeConfig = DataScopeContext.getDataScopeConfig();
+        if (dataScopeConfig != null) {
             // 构建条件SQL
             String conditionSql = AnalysisDataScope.buildCondition(DataScopeContext.getDataScopeInfoList(),
-                dataScopeHolder.getTemplate(), DataScopeContext.getDataScopeParams());
+                dataScopeConfig.getTemplate(), DataScopeContext.getDataScopeParams());
             // 注入原始查询
             if (StrUtil.isNotBlank(conditionSql)) {
                 StringBuilder newSql = new StringBuilder(originalSql);
-                if ("OR".equalsIgnoreCase(dataScopeHolder.getLogical().trim())) {
+                if ("OR".equalsIgnoreCase(dataScopeConfig.getLogical().trim())) {
                     newSql.append(SqlConsts.OR)
                         .append(SqlConsts.BRACKET_LEFT)
                         .append(conditionSql)
