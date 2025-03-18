@@ -80,6 +80,11 @@
             <artifactId>ds-flex</artifactId>
             <version>1.0-SNAPSHOT</version>
         </dependency>
+        <dependency>
+            <groupId>com.zou</groupId>
+            <artifactId>ds-mybatis</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
     </dependencies>
 
 </project>

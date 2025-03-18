@@ -16,7 +16,6 @@ import org.springframework.core.annotation.AnnotationUtils;
 import java.lang.annotation.Annotation;
 import java.lang.reflect.Method;
 import java.util.Arrays;
-import java.util.HashSet;
 import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Set;
@@ -66,7 +65,7 @@ public class DataScopeAnnotationAdvisor extends AbstractPointcutAdvisor {
                 if (dataScope.merge()) {
                     dataScopeInfos = AnalysisDataScope.merge(dataScopeInfos);
                 }
-                DataScopeContext.setDataScopeInfo(dataScopeInfos);
+                DataScopeContext.setDataScopeInfoList(dataScopeInfos);
                 return invocation.proceed();
             }
         };

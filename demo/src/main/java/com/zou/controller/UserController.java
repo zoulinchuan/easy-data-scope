@@ -1,6 +1,7 @@
 package com.zou.controller;
 
 import com.zou.entity.User;
+import com.zou.mapper.UserMapper;
 import com.zou.service.UserService;
 import com.zou.store.UserSessionContext;
 import com.zou.store.UserSessionInfo;
@@ -21,12 +22,21 @@ public class UserController {
 
     @Autowired
     public UserService userService;
+    @Autowired
+    public UserMapper userMapper;
 
     @RequestMapping("/all")
     public List<User> selectAll() {
         mockLogin();
 
         return userService.selectAll();
+    }
+
+    @RequestMapping("/allMapper")
+    public List<User> selectAll2() {
+        mockLogin();
+
+        return userMapper.allMapper();
     }
 
     @RequestMapping("/allNotDataScope")

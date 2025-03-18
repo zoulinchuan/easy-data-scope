@@ -12,6 +12,7 @@
         <module>demo</module>
         <module>ds-core</module>
         <module>ds-flex</module>
+        <module>ds-mybatis</module>
     </modules>
 
     <properties>
@@ -20,6 +21,7 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <spring-boot.version>2.2.1.RELEASE</spring-boot.version>
         <spring.version>5.2.1.RELEASE</spring.version>
+        <mybatis.version>3.5.15</mybatis.version>
         <lombok.version>1.18.34</lombok.version>
         <hutool.version>5.8.23</hutool.version>
     </properties>

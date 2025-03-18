@@ -1,17 +1,9 @@
 package com.zou;
 
-import cn.hutool.core.collection.CollUtil;
 import cn.hutool.core.util.StrUtil;
-import com.mybatisflex.core.dialect.IDialect;
 import com.mybatisflex.core.dialect.impl.CommonsDialectImpl;
 import com.mybatisflex.core.query.QueryWrapper;
-import com.mybatisflex.core.table.TableInfo;
-import com.zou.constant.SqlConsts;
 import lombok.extern.slf4j.Slf4j;
-
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
 
 /**
  * @Author zoulinchuan
@@ -27,7 +19,7 @@ public class DataScopeDialect extends CommonsDialectImpl {
         DataScopeHolder dataScopeHolder = DataScopeContext.getDataScopeHolder();
         if (dataScopeHolder != null) {
             // 构建条件SQL
-            String conditionSql = AnalysisDataScope.buildCondition(DataScopeContext.getDataScopeInfo(),
+            String conditionSql = AnalysisDataScope.buildCondition(DataScopeContext.getDataScopeInfoList(),
                     dataScopeHolder.getTemplate(), DataScopeContext.getDataScopeParams());
             // 注入原始查询
             if (StrUtil.isNotBlank(conditionSql)) {

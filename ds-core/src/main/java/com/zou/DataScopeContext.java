@@ -16,19 +16,19 @@ public class DataScopeContext {
     private static final ThreadLocal<DataScopeHolder> DATA_SCOPE_HOLDER = new ThreadLocal<>();
     private static final ThreadLocal<Map<String, Object>> DATA_SCOPE_PARAMS = new ThreadLocal<>();
 
-    protected static List<DataScopeInfo> getDataScopeInfo() {
+    public static List<DataScopeInfo> getDataScopeInfoList() {
         return DATA_SCOPE_INFO_LIST.get();
     }
 
-    protected static void setDataScopeInfo(List<DataScopeInfo> dataScopeInfo) {
+    public static void setDataScopeInfoList(List<DataScopeInfo> dataScopeInfo) {
         DATA_SCOPE_INFO_LIST.set(dataScopeInfo);
     }
 
-    protected static DataScopeHolder getDataScopeHolder() {
+    public static DataScopeHolder getDataScopeHolder() {
         return DATA_SCOPE_HOLDER.get();
     }
 
-    protected static void setDataScopeHolder(DataScopeHolder dataSourceHolder) {
+    public static void setDataScopeHolder(DataScopeHolder dataSourceHolder) {
         DATA_SCOPE_HOLDER.set(dataSourceHolder);
     }
 
