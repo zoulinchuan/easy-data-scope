@@ -88,5 +88,5 @@ select * from user where id = ? OR (/*这是使用template生成的SQL*/user.id 
 
 ### 支持情况
 - 原生mybatis ✅
-- mybatis-plus （开发中... 目前可以通过开启原生MyBatis支持达到效果，单仅能使用直接拼接方案）
+- mybatis-plus （开发中... 目前可以通过开启原生MyBatis支持达到效果，单仅能使用直接拼接方案，对于page情况兼容不好）
 - mybatis-flex ✅
