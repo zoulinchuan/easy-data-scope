@@ -1,11 +1,12 @@
-package com.zou.config;
+package com.dddemo2.config;
 
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.dddemo2.entity.AuthDataScope;
+import com.dddemo2.mapper.AuthDataScopeMapper;
+import com.dddemo2.store.UserSessionContext;
+import com.dddemo2.store.UserSessionInfo;
 import com.zou.DataScopeFindRule;
 import com.zou.DataScopeInfo;
-import com.zou.entity.AuthDatascope;
-import com.zou.mapper.AuthDataSocpeMapper;
-import com.zou.store.UserSessionContext;
-import com.zou.store.UserSessionInfo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -21,15 +22,18 @@ import java.util.List;
 public class MyDataScopeFindRule implements DataScopeFindRule {
 
     @Autowired
-    private AuthDataSocpeMapper authDataSocpeMapper;
+    private AuthDataScopeMapper authDataSocpeMapper;
 
     @Override
     public List<DataScopeInfo> find(String[] key) {
         UserSessionInfo userSession = UserSessionContext.getUserSession();
         if (userSession != null) {
-            List<AuthDatascope> authDatascopes = authDataSocpeMapper.selectListByIds(userSession.getDataScopeIds());
+
+            List<AuthDataScope> authDatascopes =
+                authDataSocpeMapper.selectList(new QueryWrapper<AuthDataScope>()
+                    .in("id", userSession.getDataScopeIds()));
             List<DataScopeInfo> dataScopeInfos = new ArrayList<>(authDatascopes.size());
-            for (AuthDatascope authDatascope : authDatascopes) {
+            for (AuthDataScope authDatascope : authDatascopes) {
                 DataScopeInfo dataScopeInfo = new DataScopeInfo();
                 dataScopeInfo.setKey(authDatascope.getDatascopeKey());
                 dataScopeInfo.setOperator(authDatascope.getDatascopeOpName());

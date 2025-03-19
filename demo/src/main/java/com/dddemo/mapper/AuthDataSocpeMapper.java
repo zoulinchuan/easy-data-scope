@@ -1,7 +1,7 @@
-package com.zou.mapper;
+package com.dddemo.mapper;
 
+import com.dddemo.entity.AuthDatascope;
 import com.mybatisflex.core.BaseMapper;
-import com.zou.entity.AuthDatascope;
 
 /**
  * @Author zoulinchuan

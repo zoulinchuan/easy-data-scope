@@ -55,7 +55,7 @@ public class DataScopeContext {
         return map.put(key, value);
     }
 
-    protected static void clear() {
+    public static void clear() {
         DATA_SCOPE_INFO_LIST.remove();
         DATA_SCOPE_CONFIG.remove();
         DATA_SCOPE_PARAMS.remove();

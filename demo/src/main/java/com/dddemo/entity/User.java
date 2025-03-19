@@ -1,4 +1,4 @@
-package com.zou.entity;
+package com.dddemo.entity;
 
 import com.mybatisflex.annotation.Id;
 import com.mybatisflex.annotation.KeyType;

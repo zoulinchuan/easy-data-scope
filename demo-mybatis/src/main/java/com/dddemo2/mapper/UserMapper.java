@@ -1,9 +1,10 @@
-package com.zou.mapper;
+package com.dddemo2.mapper;
 
-import com.mybatisflex.core.BaseMapper;
+import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+import com.dddemo2.entity.User;
 import com.zou.anno.DataScope;
 import com.zou.constant.SqlConsts;
-import com.zou.entity.User;
+import org.apache.ibatis.annotations.Mapper;
 
 import java.util.List;
 
@@ -11,6 +12,7 @@ import java.util.List;
  * @Author zoulinchuan
  * @description:
  */
+@Mapper
 public interface UserMapper extends BaseMapper<User> {
 
     @DataScope(keys = {"USER_LIST", "USER_LIST2"},

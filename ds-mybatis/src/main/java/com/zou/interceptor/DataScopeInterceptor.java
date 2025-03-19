@@ -38,6 +38,7 @@ public class DataScopeInterceptor implements Interceptor {
                 Field sqlField = boundSql.getClass().getDeclaredField("sql");
                 sqlField.setAccessible(true);
                 sqlField.set(boundSql, newSql.toString());
+                DataScopeContext.clear();
             }
         }
 
@@ -53,6 +54,7 @@ public class DataScopeInterceptor implements Interceptor {
             DataScopeContext.putDataScopeParam(DataScopeConsts.DATA_SCOPE_PARAM_KEY, conditionSql);
             newSql = new StringBuilder(TemplateUtils.replacePlaceholders(originalSql, DataScopeContext.getDataScopeParams()));
         } else {
+            newSql.append(originalSql);
             // 注入原始查询
             if (StrUtil.isNotBlank(conditionSql)) {
                 if ("OR".equalsIgnoreCase(dataScopeConfig.getLogical().trim())) {

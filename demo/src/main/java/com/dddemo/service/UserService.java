@@ -1,14 +1,10 @@
-package com.zou.service;
+package com.dddemo.service;
 
-import com.mybatisflex.core.query.QueryChain;
-import com.mybatisflex.core.query.QueryMethods;
+import com.dddemo.entity.User;
+import com.dddemo.mapper.UserMapper;
 import com.mybatisflex.core.query.QueryWrapper;
-import com.zou.DataScopeContext;
 import com.zou.anno.DataScope;
 import com.zou.constant.DataScopeConsts;
-import com.zou.constant.SqlConsts;
-import com.zou.entity.User;
-import com.zou.mapper.UserMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

@@ -15,7 +15,6 @@ import org.springframework.stereotype.Component;
  * @description: DataScope 注解处理器
  */
 @Slf4j
-// @Component
 public class DataScopeAnnotationBeanPostProcessor extends AbstractBeanFactoryAwareAdvisingPostProcessor {
 
     private final DataScopeFindRule dataScopeFindRule;

@@ -28,11 +28,10 @@ public class DataScopeDialect extends CommonsDialectImpl {
                     dataScopeConfig.getTemplate(), DataScopeContext.getDataScopeParams());
             if (StrUtil.isNotBlank(conditionSql)) {
                 doAppendConditionSql(queryWrapper, dataScopeConfig, conditionSql);
+                // （原生MyBatis和Flex同时使用情况）已经处理了数据权限，清除掉数据以防MyBatis拦截器再次拦截
+                DataScopeContext.clear();
             }
         }
-
-        // （原生MyBatis和Flex同时使用情况）已经处理了数据权限，清除掉数据以防MyBatis拦截器再次拦截
-        DataScopeContext.clear();
 
         return super.forSelectByQuery(queryWrapper);
     }

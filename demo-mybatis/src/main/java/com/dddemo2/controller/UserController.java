@@ -1,12 +1,11 @@
-package com.zou.controller;
+package com.dddemo2.controller;
 
-import com.zou.entity.User;
-import com.zou.mapper.UserMapper;
-import com.zou.service.UserService;
-import com.zou.store.UserSessionContext;
-import com.zou.store.UserSessionInfo;
+import com.dddemo2.entity.User;
+import com.dddemo2.mapper.UserMapper;
+import com.dddemo2.service.UserService;
+import com.dddemo2.store.UserSessionContext;
+import com.dddemo2.store.UserSessionInfo;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -29,7 +28,7 @@ public class UserController {
     public List<User> selectAll() {
         mockLogin();
 
-        return userService.selectAll();
+        return userService.list();
     }
 
     @RequestMapping("/allMapper")

@@ -13,6 +13,7 @@
         <module>ds-core</module>
         <module>ds-flex</module>
         <module>ds-mybatis</module>
+        <module>demo-mybatis</module>
     </modules>
 
     <properties>

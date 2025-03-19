@@ -1,4 +1,4 @@
-package com.zou.store;
+package com.dddemo2.store;
 
 import lombok.Data;
 

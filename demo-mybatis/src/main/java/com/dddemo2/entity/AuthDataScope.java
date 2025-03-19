@@ -1,8 +1,6 @@
-package com.zou.entity;
+package com.dddemo2.entity;
 
-import com.mybatisflex.annotation.Id;
-import com.mybatisflex.annotation.KeyType;
-import com.mybatisflex.annotation.Table;
+import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.Data;
 
 /**
@@ -10,13 +8,12 @@ import lombok.Data;
  * @description: 数据权限实体
  */
 @Data
-@Table(value = "auth_datascope")
-public class AuthDatascope {
+@TableName("`auth_datascope`")
+public class AuthDataScope {
 
     /**
      * 编号
      */
-    @Id(keyType = KeyType.Auto)
     private Integer id;
     /**
      * 数据权限标识
@@ -26,10 +23,6 @@ public class AuthDatascope {
      * 数据权限名称
      */
     private String datascopeName;
-    /**
-     * 数据权限逻辑(AND、OR)
-     */
-//    private String datascopeLogic;
     /**
      * 数据权限表别名
      */

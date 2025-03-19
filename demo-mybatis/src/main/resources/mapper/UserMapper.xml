@@ -2,8 +2,8 @@
 <!DOCTYPE mapper
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.dddemo.mapper.UserMapper">
-    <select id="allMapper" resultType="com.dddemo.entity.User">
+<mapper namespace="com.dddemo2.mapper.UserMapper">
+    <select id="allMapper" resultType="com.dddemo2.entity.User">
         select * from (select * from user where {{_DATA_SCOPE_FLAG}}) t where id = 1
     </select>
 </mapper>
