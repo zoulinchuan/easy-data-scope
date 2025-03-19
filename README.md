@@ -110,5 +110,5 @@ select * from (select * from user where user.id   IN  (1, 2, 3) OR user.age > 10
 
 ### 支持情况
 - 原生mybatis ✅
-- mybatis-plus （开发中... 目前可以通过开启原生MyBatis支持达到效果，单仅能使用直接拼接方案，对于page情况兼容不好）
+- mybatis-plus （开发中... 兼容早期分页实现，仅能使用直接拼接方案）
 - mybatis-flex ✅
