@@ -86,6 +86,27 @@ select * from user where id = ? OR (/*这是使用template生成的SQL*/user.id 
 > 
 > 缺点：对SQL有一定侵入性
 
+##### 使用1: 任意方法
+<img width="925" alt="image" src="https://github.com/user-attachments/assets/e9c1ccc0-a2d0-4ec1-9df5-53ce7f2684e6" />
+
+生成SQL
+
+``` SQL
+SELECT * FROM (SELECT `id`, `username`, `age` FROM `user` WHERE  user.id   IN  (1, 2, 3) OR user.age > 10/*这是使用template生成的SQL*/ ) AS `t` WHERE  id = 1  ORDER BY id
+```
+
+##### 使用2:MyBatis
+
+<img width="824" alt="image" src="https://github.com/user-attachments/assets/378b99c7-7d95-42ab-b3a8-e1c1abc54da0" />
+<img width="776" alt="image" src="https://github.com/user-attachments/assets/0d5f7a89-7f0b-43c8-ab44-1d332bf93f55" />
+
+生成SQL
+
+``` SQL
+select * from (select * from user where user.id   IN  (1, 2, 3) OR user.age > 10/*这是使用template生成的SQL*/) t where id = 1
+```
+
+
 ### 支持情况
 - 原生mybatis ✅
 - mybatis-plus （开发中... 目前可以通过开启原生MyBatis支持达到效果，单仅能使用直接拼接方案，对于page情况兼容不好）
