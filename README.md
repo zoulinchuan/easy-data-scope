@@ -51,14 +51,15 @@ public @interface DataScope {
 }
 ```
 
+##### 开启数据权限处理
+<img width="1020" alt="image" src="https://github.com/user-attachments/assets/0f7e8bc8-cfe1-43b8-8863-501d37761de9" />
+
 ### 使用方式1(直接拼接)
 > 直通过获取注解的logical属性, 在原SQL中以AND或OR的形式直接拼接在SQL末尾
 > 
 > 优势：简单、无代码侵入
 > 
 > 缺点：对复杂查询显得力不从心
-##### 开启数据权限处理
-<img width="1020" alt="image" src="https://github.com/user-attachments/assets/0f7e8bc8-cfe1-43b8-8863-501d37761de9" />
 
 ##### 使用1: 任意方法
 <img width="1288" alt="image" src="https://github.com/user-attachments/assets/2c38d69a-eada-4af7-98db-12205bbb8975" />
