@@ -44,7 +44,7 @@ public @interface DataScope {
 
     /**
      * 逻辑符
-     * 决定数据权限SQL拼接到当前执行的SQL中用的使用的是 AND还是OR..
+     * 决定数据权限SQL拼接到当前执行的SQL中用的使用的是 WHERE还是AND还是OR..
      * TODO 注意：在flag为true时此值将会失效
      * @return
      */

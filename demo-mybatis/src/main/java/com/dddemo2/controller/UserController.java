@@ -1,5 +1,6 @@
 package com.dddemo2.controller;
 
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.dddemo2.entity.User;
 import com.dddemo2.mapper.UserMapper;
 import com.dddemo2.service.UserService;
@@ -29,6 +30,13 @@ public class UserController {
         mockLogin();
 
         return userService.list();
+    }
+
+    @RequestMapping("/page")
+    public Page<User> page() {
+        mockLogin();
+
+        return userService.page();
     }
 
     @RequestMapping("/allMapper")

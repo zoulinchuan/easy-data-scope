@@ -5,6 +5,7 @@ import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.dddemo2.entity.User;
 import com.dddemo2.mapper.UserMapper;
 import com.zou.anno.DataScope;
+import com.zou.constant.SqlConsts;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -30,7 +31,8 @@ public class UserService {
     // 多key情况使用模板，通过模板构建
     @DataScope(keys = {"USER_LIST", "USER_LIST2"},
         merge = true,
-        flag = true,
+        // flag = true,
+        logical =SqlConsts.WHERE,
         template = "{{USER_LIST}} OR {{USER_LIST2}}/*这是使用template生成的SQL*/")
     public List<User> list() {
         // 数据权限中有使用到程序中的值
@@ -48,6 +50,7 @@ public class UserService {
     @DataScope(keys = {"USER_LIST", "USER_LIST2"},
         merge = true,
         // flag = true,
+        logical =SqlConsts.WHERE,
         template = "{{USER_LIST}} OR {{USER_LIST2}}/*这是使用template生成的SQL*/")
     public Page<User> page() {
         // 数据权限中有使用到程序中的值
@@ -56,10 +59,7 @@ public class UserService {
         page.setCurrent(1);
         page.setSize(1);
 
-        QueryWrapper<User> queryWrapper = new QueryWrapper<>();
-        queryWrapper.eq("id", 1);
-
-        return userMapper.selectPage(page,queryWrapper);
+        return userMapper.selectPage(page, null);
     }
 
     public List<User> selectAllNotDataScope() {

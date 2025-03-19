@@ -58,16 +58,15 @@ public class DataScopeInterceptor implements Interceptor {
             // 注入原始查询
             if (StrUtil.isNotBlank(conditionSql)) {
                 if ("OR".equalsIgnoreCase(dataScopeConfig.getLogical().trim())) {
-                    newSql.append(SqlConsts.OR)
-                        .append(SqlConsts.BRACKET_LEFT)
-                        .append(conditionSql)
-                        .append(SqlConsts.BRACKET_RIGHT);
-                } else {
-                    newSql.append(SqlConsts.AND)
-                        .append(SqlConsts.BRACKET_LEFT)
-                        .append(conditionSql)
-                        .append(SqlConsts.BRACKET_RIGHT);
+                    newSql.append(SqlConsts.OR);
+                } else if ("WHERE".equalsIgnoreCase(dataScopeConfig.getLogical().trim())) {
+                    newSql.append(SqlConsts.WHERE);
+                }  else {
+                    newSql.append(SqlConsts.AND);
                 }
+                newSql.append(SqlConsts.BRACKET_LEFT)
+                    .append(conditionSql)
+                    .append(SqlConsts.BRACKET_RIGHT);
             }
         }
         return newSql;
