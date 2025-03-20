@@ -6,12 +6,12 @@
 
     <groupId>cn.zlinchuan</groupId>
     <artifactId>easy-data-scope</artifactId>
-    <version>1.0.0</version>
+    <version>1.0.1</version>
     <packaging>pom</packaging>
     <description>一个通过注入SQL实现数据权限的项目</description>
     <modules>
-        <module>demo</module>
-        <module>demo-mybatis</module>
+        <!--<module>demo</module>-->
+        <!--<module>demo-mybatis</module>-->
         <module>ds-core</module>
         <module>ds-flex</module>
         <module>ds-mybatis</module>

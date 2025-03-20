@@ -6,7 +6,7 @@
     <parent>
         <groupId>cn.zlinchuan</groupId>
         <artifactId>easy-data-scope</artifactId>
-        <version>1.0.0</version>
+        <version>1.0.1</version>
     </parent>
 
     <artifactId>ds-core</artifactId>

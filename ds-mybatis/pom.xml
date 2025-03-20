@@ -6,7 +6,7 @@
     <parent>
         <groupId>cn.zlinchuan</groupId>
         <artifactId>easy-data-scope</artifactId>
-        <version>1.0.0</version>
+        <version>1.0.1</version>
     </parent>
 
     <artifactId>ds-mybatis</artifactId>
@@ -21,7 +21,7 @@
         <dependency>
             <groupId>cn.zlinchuan</groupId>
             <artifactId>ds-core</artifactId>
-            <version>1.0.0</version>
+            <version>1.0.1</version>
         </dependency>
         <dependency>
             <groupId>org.mybatis</groupId>

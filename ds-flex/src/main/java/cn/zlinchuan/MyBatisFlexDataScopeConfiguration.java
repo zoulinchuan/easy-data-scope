@@ -12,7 +12,6 @@ import org.springframework.stereotype.Component;
  *
  * @author zoulinchuan
  */
-@Component
 public class MyBatisFlexDataScopeConfiguration{
     public MyBatisFlexDataScopeConfiguration() {
         DialectFactory.registerDialect(DbType.MYSQL, new DataScopeDialect());
