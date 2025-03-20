@@ -54,6 +54,12 @@ public @interface DataScope {
 ##### 开启数据权限处理
 <img width="1020" alt="image" src="https://github.com/user-attachments/assets/0f7e8bc8-cfe1-43b8-8863-501d37761de9" />
 
+##### 定义数据权限查找规则
+<img width="1035" alt="image" src="https://github.com/user-attachments/assets/5f7aa8f8-4cd2-424f-b079-706774385308" />
+
+现在就可以直接开启注解使用了！！
+
+
 ### 使用方式1(直接拼接)
 > 直通过获取注解的logical属性, 在原SQL中以AND或OR的形式直接拼接在SQL末尾
 > 
@@ -110,5 +116,5 @@ select * from (select * from user where user.id   IN  (1, 2, 3) OR user.age > 10
 
 ### 支持情况
 - 原生mybatis ✅
-- mybatis-plus （开发中... 兼容早期分页实现，仅能使用直接拼接方案）
+- mybatis-plus （开发中... 兼容早期分页实现，暂不支持占位符使用方式）
 - mybatis-flex ✅
