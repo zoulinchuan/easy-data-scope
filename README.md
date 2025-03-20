@@ -3,6 +3,23 @@
 - 配置简单
 - 使用便捷
 
+##### 导入依赖
+```xml
+<dependency>
+    <groupId>cn.zlinchuan</groupId>
+    <artifactId>ds-mybatis</artifactId>
+    <version>1.0.1</version>
+</dependency>
+```
+
+##### 开启数据权限处理
+<img width="1020" alt="image" src="https://github.com/user-attachments/assets/0f7e8bc8-cfe1-43b8-8863-501d37761de9" />
+
+##### 定义数据权限查找规则
+<img width="1035" alt="image" src="https://github.com/user-attachments/assets/5f7aa8f8-4cd2-424f-b079-706774385308" />
+
+现在就可以直接开启注解使用了！！
+
 ### 核心注解
 
 ``` java
@@ -50,14 +67,6 @@ public @interface DataScope {
     boolean flag() default false;
 }
 ```
-
-##### 开启数据权限处理
-<img width="1020" alt="image" src="https://github.com/user-attachments/assets/0f7e8bc8-cfe1-43b8-8863-501d37761de9" />
-
-##### 定义数据权限查找规则
-<img width="1035" alt="image" src="https://github.com/user-attachments/assets/5f7aa8f8-4cd2-424f-b079-706774385308" />
-
-现在就可以直接开启注解使用了！！
 
 
 ### 使用方式1(直接拼接)
