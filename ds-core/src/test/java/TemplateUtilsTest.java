@@ -1,12 +1,12 @@
-import com.zou.TemplateUtils;
+import cn.zlinchuan.TemplateUtils;
 
 import java.util.HashMap;
 import java.util.Map;
 
 /**
- * @Author zoulinchuan
- * @Date 2025年03月16日 星期日 22:36
- * @description: 模板处理工具测试类
+ * 模板处理工具测试类
+ *
+ * @author zoulinchuan
  */
 public class TemplateUtilsTest {
     public static void main(String[] args) {

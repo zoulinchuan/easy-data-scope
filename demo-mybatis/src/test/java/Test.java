@@ -1,18 +1,15 @@
-import com.dddemo2.Main;
-import com.dddemo2.mapper.UserMapper;
-import com.dddemo2.service.UserService;
-import com.dddemo2.store.UserSessionContext;
-import com.dddemo2.store.UserSessionInfo;
-import org.junit.Before;
+import cn.zlinchuan.Main;
+import cn.zlinchuan.mapper.UserMapper;
+import cn.zlinchuan.service.UserService;
+import cn.zlinchuan.store.UserSessionContext;
+import cn.zlinchuan.store.UserSessionInfo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
 import java.util.Arrays;
 
 /**
- * @Author zoulinchuan
- * @Date 2025/3/19 11:03
- * @description:
+ * @author zoulinchuan
  */
 @SpringBootTest(classes = Main.class)
 public class Test {
