@@ -1,5 +1,6 @@
 package cn.zlinchuan.util;
 
+import cn.hutool.core.collection.CollUtil;
 import com.mybatisflex.core.query.*;
 import com.mybatisflex.core.util.CollectionUtil;
 
@@ -21,10 +22,19 @@ public class QueryWrapperUtil {
         List<QueryTable> joinTables = CPI.getJoinTables(queryWrapper);
         List<QueryTable> allTables = CollectionUtil.merge(queryTables, joinTables);
 
+        // SelectQueryTable
         for (QueryTable queryTable : allTables) {
             if (queryTable instanceof SelectQueryTable) {
                 SelectQueryTable selectQueryTable = (SelectQueryTable) queryTable;
                 foreachQueryWrapper(selectQueryTable.getQueryWrapper(), function);
+            }
+        }
+
+        // unions
+        List<UnionWrapper> unions = CPI.getUnions(queryWrapper);
+        if (CollUtil.isNotEmpty(unions)) {
+            for (UnionWrapper union : unions) {
+                foreachQueryWrapper(union.getQueryWrapper(), function);
             }
         }
 
